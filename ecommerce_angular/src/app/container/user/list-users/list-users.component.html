@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+
+
+
+    <link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
+
+    <div class=col-md-12>
+
+      <form id="form-list-client">
+        <legend>List of Users</legend>
+
+        <table *ngIf="users.length > 0" class="table table-bordered table-condensed table-hover">
+          <thead>
+            <tr>
+              <td>Id</td>
+              <td>Username</td>
+              <th>Role</th>
+              <th *ngIf="isAdmin()">Actions</th>
+            </tr>
+
+          </thead>
+          <tbody id="form-list-client-body">
+            <tr *ngFor="let u of users; let i = index" (click)="goToProfile(u)">
+              <td>{{u.id}}</td>
+              <td>{{u.username}}</td>
+              <td>{{u.role}}</td>
+              <td *ngIf="isAdmin()">
+                <a title="edit this address" class="btn btn-default btn-sm" (click)="edit(u)"> <i
+                    class="glyphicon glyphicon-edit text-primary"></i> </a>
+                <a title="delete this address" class="btn btn-default btn-sm "> <i
+                    class="glyphicon glyphicon-trash text-danger" (click)="deleteUser(u, i)"></i> </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h4 *ngIf="users.length === 0">List is empty</h4>
+      </form>
+    </div>
+  </div>
+</div>

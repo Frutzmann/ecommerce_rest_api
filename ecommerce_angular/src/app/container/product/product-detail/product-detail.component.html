@@ -1,0 +1,32 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+        <div class="container" style="padding-top: 2em">
+        	<div class="row">
+               <div class="col-xs-4 item-photo">
+                    <img style="max-width: 50%" [src]="getSrc()" />
+                </div>
+                <div class="col-xs-5" style="border:0px solid gray">
+                    <h3>{{ product.title }}</h3>
+                    <h5>{{ product.description }}</h5>    
+        
+                    <h6 class="title-price"><small>Price</small></h6>
+                    <h3 style="margin-top:0px;">{{ product.price }} {{ product.currency }}</h3>
+    
+                    <div class="section" style="padding-bottom:20px;">
+                        <h6 class="title-attr"><small>Quantity</small></h6>                    
+                        <div>
+                            <div class="btn-minus"><span class="glyphicon glyphicon-minus" (click)="decrementQuantity()"></span></div>
+                            <input [(ngModel)]="quantity" />
+                            <div class="btn-plus"><span class="glyphicon glyphicon-plus" (click)="incrementQuantity()"></span></div>
+                        </div>
+                    </div>                
+        
+                    <div class="section" style="padding-bottom:20px;">
+                        <button class="btn btn-success" (click)="AddToBasket()"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart"  aria-hidden="true"></span>Add To Basket</button>
+                    </div>                                        
+                </div>                              
+            </div>
+        </div>        

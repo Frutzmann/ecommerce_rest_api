@@ -1,0 +1,114 @@
+<link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
+<div class="container">
+  <div class="row">
+      <div class=col-md-12>
+
+          <form id="form-list-client">
+            <legend>List of Every Addresses</legend>
+            <div class="pull-right">
+              <a class="btn btn-default-btn-xs btn-success btnNew" href="/addAddress"><i class="glyphicon glyphicon-plus"></i>New Address</a>
+            </div>
+      
+            <table *ngIf="addresses.length > 0" class="table table-bordered table-condensed table-hover">
+              <thead>
+                <tr>
+                  <th>Street</th>
+                  <th>Postal Code</th>
+                  <th>City</th>
+                  <th>Country</th>
+                  <th>Actions</th>
+                </tr>
+      
+              </thead>
+              <tbody id="form-list-client-body">
+                <tr *ngFor="let a of addresses; let i = index">
+                  <td>{{ a.road }}</td>
+                  <td>{{ a.postalCode}}</td>
+                  <td>{{ a.city }}</td>
+                  <td>{{ a.country }}</td>
+                  <th>
+                    <a title="edit this address" class="btn btn-default btn-sm" (click)="editAddress(a)"> <i
+                        class="glyphicon glyphicon-edit text-primary"></i> </a>
+                    <a title="delete this address" class="btn btn-default btn-sm "> <i
+                        class="glyphicon glyphicon-trash text-danger" (click)="deleteAddress(a, i)"></i> </a>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <h4 *ngIf="addresses.length === 0">List is empty</h4>
+          </form>
+        </div>
+  </div>
+
+  <div class="row">
+    <div class=col-md-12>
+
+        <form id="form-list-client">
+          <legend>List of Every Products</legend>
+          <div class="pull-right">
+            <a class="btn btn-default-btn-xs btn-success btnNew" href="/createProduct"><i class="glyphicon glyphicon-plus"></i>New Product</a>
+          </div>
+          <table *ngIf="products.length > 0" class="table table-bordered table-condensed table-hover">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+    
+            </thead>
+            <tbody id="form-list-client-body">
+              <tr *ngFor="let p of products; let i = index">
+                <td>{{ p.title }}</td>
+                <td>{{ p.description}}</td>
+                <td>{{ p.price }} {{ p.currency }}</td>
+                <td> 
+                  <a title="edit this product" class="btn btn-default btn-sm" (click)="editProduct(p)"> <i
+                      class="glyphicon glyphicon-edit text-primary"></i> </a>
+                  <a title="delete this product" class="btn btn-default btn-sm "> <i
+                      class="glyphicon glyphicon-trash text-danger" (click)="deleteProduct(p, i)"></i> </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h4 *ngIf="products.length === 0">List is empty</h4>
+        </form>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class=col-md-12>
+
+        <form id="form-list-client">
+          <legend>List of Every Orders</legend>
+         
+          <table *ngIf="orders.length > 0" class="table table-bordered table-condensed table-hover">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Address</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+    
+            </thead>
+            <tbody id="form-list-client-body">
+              <tr *ngFor="let o of orders; let i = index">
+                <td>{{ o.user.username }}</td>
+                <td>{{ o.address.road}} {{ o.address.postalCode }} {{o.address.city }} {{ o.address.country }}</td>
+                <td>{{ o.totalPrice }}</td>
+                <td>
+                <a title="delete this order" class="btn btn-default btn-sm "> <i
+                  class="glyphicon glyphicon-trash text-danger" (click)="deleteOrder(o, i)"></i> </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h4 *ngIf="addresses.length === 0">List is empty</h4>
+        </form>
+      </div>
+</div>
+</div>

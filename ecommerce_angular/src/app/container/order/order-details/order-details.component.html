@@ -1,0 +1,49 @@
+
+<div class="row">
+    <div class="container col-md-6">
+        <div class="card">
+            <div class="container">
+                <p>Purchased Order For: <b>{{ order.user.username }}</b></p>
+
+                <p>Destination: <b>{{ order.address.road}} {{ order.address.postalCode }} {{order.address.city }} {{ order.address.country }}</b></p>
+        
+                <h5>Order N° {{ order.orderNumber }}</h5>
+            </div>
+           
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class=col-md-8 style="margin-left: 15%; margin-top: 5%">
+        <form id="form-list-client">
+          <legend>Your Orders</legend>
+          <table *ngIf="basket.length > 0" class="table table-bordered table-condensed table-hover">
+            <thead>
+              <tr>
+                <td>Product Id</td>
+                <th>Prodcut Title</th>
+                <th>Quantity</th>
+                <th>Price</th>
+              </tr>
+    
+            </thead>
+            <tbody id="form-list-client-body">
+              <tr *ngFor="let b of basket; let i = index">
+                <td>{{b.id}}</td>
+                <td>{{b.product.title}}</td>
+                <td>{{b.quantity}}</td>
+                <td>{{b.product.price * b.quantity}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h4 *ngIf="basket.length === 0">List is empty</h4>
+        </form>
+      </div>
+</div>
+<div class="row">
+    <div class="col-md-3" style="margin-left:15%">
+        <div class="row">
+            <h4><b>Total Price: </b></h4> <p>{{ order.totalPrice }}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
+<div class="container">
+    <div class="row">
+        <div class=col-md-12>
+
+            <form id="form-list-client">
+              <legend>Your Products</legend>
+        
+              <table *ngIf="baskets.length > 0" class="table table-bordered table-condensed table-hover">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                  </tr>
+        
+                </thead>
+                <tbody id="form-list-client-body">
+                  <tr *ngFor="let b of baskets; let i = index">
+                    <td>{{ b.product.title }}</td>
+                    <td>{{ b.product.description }}</td>
+                    <td>{{ b.quantity }}</td>
+                    <td>{{  b.product.price * b.quantity }} {{ b.product.currency }}</td>
+                    <td>
+                      <a title="delete this address" class="btn btn-default btn-sm "> <i
+                          class="glyphicon glyphicon-trash text-danger" (click)="deleteBasket(b, i)"></i> </a>
+        
+        
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <button *ngIf="baskets.length > 0" class="btn btn-primary buy-btn" (click)="order()"> Buy </button>
+              <h4 *ngIf="baskets.length === 0">List is empty</h4>
+            </form>
+          </div>
+    </div>
+</div>
+
+

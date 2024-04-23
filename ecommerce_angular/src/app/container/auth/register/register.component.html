@@ -1,0 +1,34 @@
+<div class="container">
+    <h1 class="form-heading">Register Form</h1>
+    <div class="login-form">
+    <div class="main-div">
+        <div class="panel">
+       <h2>Register</h2>
+       <p>Please enter your username and password</p>
+       <div *ngIf="!completeForm"><h4 style="color: red"><strong>Please ensure to fill every field</strong></h4></div>
+       <div *ngIf="errorForm"><h4 style="color: red"><strong>Invalid username or password</strong></h4></div>
+       <div *ngIf="usernameError"><h4 style="color: red"><strong>Username already in use</strong></h4></div>
+       </div>
+        <form id="Login">
+    
+            <div class="form-group">
+    
+    
+                <input [(ngModel)]="username"  [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputEmail" placeholder="username">
+    
+            </div>
+    
+            <div class="form-group">
+    
+                <input [(ngModel)]="password"  [ngModelOptions]="{standalone: true}" type="password" class="form-control" id="inputPassword" placeholder="Password">
+    
+            </div>
+            <div class="forgot">
+            <a href="/login">Have an account?</a>
+    </div>
+            <button type="submit" class="btn btn-primary" (click)="register()">Register</button>
+    
+        </form>
+        </div>
+    <p class="botto-text"> Designed by Sunil Rajput</p>
+    </div></div>
