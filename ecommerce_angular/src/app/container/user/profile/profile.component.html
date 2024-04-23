@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+
+
+    <link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
+
+
+    <!-- FORM  -->
+    <div class="col-md-12">
+
+      <form class="form-horizontal" id="form-edit-client">
+        <fieldset>
+
+          <!-- Form Name -->
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="client-name">Username: </label>
+            <div class="col-md-4">
+              <input [(ngModel)]="user.username" id="client-name" name="name" type="text" placeholder="New username"
+                class="form-control input-md" required>
+              <span class="help-block">Current Username: <strong>{{currentUsername || "not connected"}}</strong></span>
+            </div>
+          </div>
+
+
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="btn-save"></label>
+            <div class="col-md-4">
+              <button id="btn-save" name="btn-save" class="btn btn-success editBtn" (click)="editUsername()">Edit</button>
+              <button style="margin-left: 100px;" class="btn btn-warning delBtn" (click)="deleteAccount()">Delete Account</button>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+
+
+    </div>
+
+    <div class=col-md-12>
+
+      <form id="form-list-client">
+        <legend>Your Orders</legend>
+
+        <div class="pull-right">
+          <a class="btn btn-default-btn-xs btn-success btnNew" href="/addAddress"><i class="glyphicon glyphicon-plus"></i> New</a>
+        </div>
+        <table *ngIf="order.length > 0" class="table table-bordered table-condensed table-hover">
+          <thead>
+            <tr>
+              <td>Order Id</td>
+              <th>Order Address</th>
+              <th>Order User</th>
+              <th>Order Price</th>
+              <th>Actions</th>
+            </tr>
+
+          </thead>
+          <tbody id="form-list-client-body">
+            <tr *ngFor="let or of order; let i = index">
+              <td>{{or.id}}</td>
+              <td>{{or.address.road}} {{or.address.postalCode}} {{ or.address.city}}</td>
+              <td>{{or.user.username}}</td>
+              <td>{{or.totalPrice}}</td>
+              <td>
+                <a title="edit this product" class="btn btn-default btn-sm" (click)="detailOrder(or)"> <i
+                  class="glyphicon glyphicon-edit text-primary"></i> </a>
+                <a title="delete this address" class="btn btn-default btn-sm "> <i
+                    class="glyphicon glyphicon-trash text-danger" (click)="deleteOrder(or, i)"></i> </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h4 *ngIf="order.length === 0">List is empty</h4>
+      </form>
+    </div>
+
+    <br> 
+
+
+
+
+  </div>
+</div>

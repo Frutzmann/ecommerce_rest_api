@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 30px;">
+  <a class="navbar-brand" href="/product">Quest Web</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <div *ngIf="isLog">
+          <a class="nav-link" href="/profile" style="font-size: 14px; padding-left: 2em">Profile</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div *ngIf="isLog">
+          <a class="nav-link" href="/user" style="font-size: 14px; padding-left: 2em">Users</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div *ngIf="!isLog">
+          <a class="nav-link" href="/login" style="font-size: 14px; padding-left: 2em">Login</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div *ngIf="isLog">
+          <a class="nav-link" href="/productList" style="font-size: 14px; padding-left: 2em">Products</a>
+        </div>
+      </li>
+     
+      <li class="nav-item">
+        <div *ngIf="isLog">
+          <a class="nav-link" href="/basket" style="font-size: 14px; padding-left: 2em">Basket</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <div *ngIf="isLog">
+          <a class="nav-link" href="/admin" style="font-size: 14px; padding-left: 2em">Admin</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <div *ngIf="isLog">
+          <a class="nav-link" (click)="logout()" style="font-size: 14px; padding-left: 2em">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

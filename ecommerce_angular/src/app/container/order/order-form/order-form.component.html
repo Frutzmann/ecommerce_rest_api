@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="row">
+        <div class=col-md-12>
+
+            <form id="form-list-client">
+              <legend>Products Recap</legend>
+        
+              <table *ngIf="basket.length > 0" class="table table-bordered table-condensed table-hover">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                  </tr>
+        
+                </thead>
+                <tbody id="form-list-client-body">
+                  <tr *ngFor="let b of basket; let i = index">
+                    <td>{{ b.product.title }}</td>
+                    <td>{{ b.product.description }}</td>
+                    <td>{{ b.quantity }}</td>
+                    <td>{{  b.product.price * b.quantity }} {{ b.product.currency }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h4 *ngIf="basket.length === 0">List is empty</h4>
+            </form>
+           <h4 *ngIf="basket.length > 0"> <b>Total Price: </b>{{ totalPrice }} €</h4>
+          </div>
+    </div>
+</div>
+
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h3>Choose your Address:</h3>
+                <div class="card">
+                    <select [(ngModel)]="selectedAddress" class="form-select">
+                        <option *ngFor="let a of userAddress" [ngValue]="a">{{a.road}}, {{a.postalCode}} {{a.city}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3>Or create one if you wish:</h3>
+                <div class="card">
+                    <div class="card-header">Please enter your address</div>
+                    <div class="card-body">
+                        <form action="" method="">
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right" >Road:</label>
+                                <div class="col-md-6" style="padding-bottom: 1em; ">
+                                    <input [(ngModel)]="address.road" type="text" class="form-control" name="road" required autofocus>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Postal Code:</label>
+                                <div class="col-md-6" style="padding-bottom: 1em;">
+                                    <input [(ngModel)]="address.postalCode" type="text" class="form-control" name="postalCode" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">City:</label>
+                                <div class="col-md-6" style="padding-bottom: 1em;">
+                                    <input [(ngModel)]="address.city" type="text" class="form-control" name="city" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Country:</label>
+                                <div class="col-md-6" style="padding-bottom: 1em;">
+                                    <input [(ngModel)]="address.country" type="text" class="form-control" name="country" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" (click)="createOrder()" style="margin-top: 4em; margin-left: 37%;">
+                                Create Address
+                            </button>
+                    </form>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    </div>
+
+</main>
+
+<div class="col-md-6 offset-md-4">
+    <button type="submit" class="btn btn-primary" (click)="createOrder()" style="margin-top: 4em; margin-left: 25%;">
+        Buy
+    </button>
+    <button type="submit" class="btn btn-light" style="margin-top: 4em; margin-left: 5%">
+        Cancel
+    </button>
+</div>

@@ -1,0 +1,43 @@
+<div class="card col-md-8" style="margin-left: 15%">
+    <div class="card-header">Please enter your address</div>
+    <div class="card-body">
+        <form action="" method="">
+            <div class="form-group row">
+                <label class="col-md-4 col-form-label text-md-right" >Title</label>
+                <div class="col-md-6" style="padding-bottom: 1em; ">
+                    <input [(ngModel)]="prod.title" type="text" class="form-control" name="title" required autofocus>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-4 col-form-label text-md-right">Description</label>
+                <div class="col-md-6" style="padding-bottom: 1em;">
+                    <input [(ngModel)]="prod.description" type="description" class="form-control" name="description" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 col-form-label text-md-right">link</label>
+                <div class="col-md-6" style="padding-bottom: 1em;">
+                    <input [(ngModel)]="prod.link" type="description" class="form-control" name="link" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-4 col-form-label text-md-right">Price</label>
+                <div class="col-md-6" style="padding-bottom: 1em;">
+                    <input [(ngModel)]="prod.price" type="text" class="form-control" name="price" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-4 col-form-label text-md-right">Currency</label>
+                <div class="col-md-6" style="padding-bottom: 1em;">
+                    <input [(ngModel)]="prod.currency" type="description" class="form-control" name="currency" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" (click)="createProduct()" style="margin-top: 4em; margin-left: 37%;">
+                Create Product
+            </button>
+    </form>
+</div>
